@@ -1,5 +1,5 @@
 print("hello world")
 print("papaa")
-print("dimi is gay af")
+print("dimi is actually gay")
 
 
