@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login or Register</title>
+</head>
+<body>
+    <h2>login or register</h2>
+    <hr>
+
+    {% if user %}
+    	you are logged in as: {{ user.Username }}
+        <a href=" {% url 'user:logout' %}">logout</a>
+    {% else %}
+        <a href="{% url 'user:login' %}">login</a>
+        <hr>
+        <a href="{% url 'user:register' %}">register</a>
+    {% endif %}
+
+
+</body>
+</html>

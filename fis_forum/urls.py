@@ -16,10 +16,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from Post.views import post_index
+from User.views import start
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
 
+    path('', start),
+
+    path('admin/', admin.site.urls),
+    #homepage
+    path('index/', post_index, name='index'),
+
+    #app pages
     path('user/', include(('User.urls', 'User'), namespace='user')),
 
     path('post/', include(('Post.urls', 'Post'), namespace='post')),
