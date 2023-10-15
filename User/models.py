@@ -5,3 +5,5 @@ class users (models.Model):
     Email = models.EmailField()
     Gradelevel = models.IntegerField(default=9)
 
+    def __str__(self):
+        return self.Username

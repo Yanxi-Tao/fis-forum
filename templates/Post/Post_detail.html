@@ -5,6 +5,20 @@
     <title>Title</title>
 </head>
 <body>
+    <h2>post detail</h2>
+    <hr>
+
+    <p>Post title: {{ posts.title }}</p>
+    <p>publish data: {{ posts.publish_date }}</p>
+
+    <p>User:
+        <a href="{% url 'user:detail' posts.author.id %}">
+            {{ posts.author.Username}}
+        </a>
+    </p>
+    <p>
+        post content: {{ posts.content}}
+    </p>
 
 </body>
 </html>
