@@ -1,6 +1,6 @@
 import datetime
 
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect, reverse
 from User.models import users
 
@@ -20,6 +20,7 @@ def start(request):
 def login(request):
     if request.method == 'GET':
         return render(request,'login/login.html')
+
     elif request.method == 'POST':
         # 1. data from frontend
         uname = request.POST.get('uname')
@@ -36,7 +37,7 @@ def login(request):
             request.session['userid'] = visit.id
             request.session.set_expiry(7*24*3600)
         # 5. redirect
-        return response
+        return redirect(reverse('index'))
 
 
 def register(request):

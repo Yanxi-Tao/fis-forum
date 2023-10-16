@@ -9,8 +9,8 @@
     <hr>
 
     {% if user %}
-    	you are logged in as: {{ user.Username }}
-        <a href=" {% url 'user:logout' %}">logout</a>
+    <meta http-equiv='refresh' content='0; URL=index/'>
+
     {% else %}
         <a href="{% url 'user:login' %}">login</a>
         <hr>
