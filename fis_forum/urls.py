@@ -16,21 +16,26 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from Post.views import post_index
+
+import Post.views
+from Post.views import *
 from User.views import start
 
 urlpatterns = [
 
     path('', start),
 
+    path('api-auth/', include('rest_framework.urls')),
+
     path('admin/', admin.site.urls),
     #homepage
     path('index/', post_index, name='index'),
-
     #app pages
     path('user/', include(('User.urls', 'User'), namespace='user')),
 
     path('post/', include(('Post.urls', 'Post'), namespace='post')),
 
     path('Subject/', include(('Subject.urls', 'Subject'), namespace='subject')),
+
+    #path('index/', Post.views.LoginView.as_view() ),
 ]

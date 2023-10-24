@@ -7,10 +7,23 @@
 <body>
     you are logged in as: {{ user.Username }}
     <a href=" {% url 'user:logout' %}">logout</a>
+
     <hr>
+
+    <form action="" method="post">
+        {% csrf_token %}
+
+        <p>search: <input type="text" name="search"/></p>
+        <p><button>search</button></p>
+
+    </form>
+
+    <hr>
+
     <h2>
         <a href="">post something</a>
     </h2>
+
     <hr>
 
     <h2>posts</h2>
