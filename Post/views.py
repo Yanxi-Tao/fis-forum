@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse
 from Post.models import posts
 from User.models import users
 from django.http import JsonResponse, HttpResponse
+from Subject.models import Subject
 from rest_framework.response import Response
 
 
@@ -28,4 +29,19 @@ def post_detail(request, pid):
     # return JsonResponse(a,safe = False)
     return render(request, 'Post/Post_detail.html', {'posts': post})
 
+def new_post(request):
+    userid = request.session.get('userid', 0)
+    if request.method == 'GET':
+        subject = Subject.objects.all()
+
+        return render(request,'Post/Post_new.html', {'subject': subject})
+    elif request.method == 'POST':
+        sid = request.POST.get('subject')
+        post = posts()
+        post.author_id = userid
+        post.title = request.POST.get('title')
+        post.content = request.POST.get('content')
+        post.subject = Subject.objects.get(id = sid)
+        post.save()
+        return redirect(reverse('index'))
 

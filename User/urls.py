@@ -14,5 +14,4 @@ urlpatterns = [
 
     path('detail/<int:uid>/', user_detail, name='detail'),
 
-
 ]

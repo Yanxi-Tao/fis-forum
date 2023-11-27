@@ -13,7 +13,7 @@ class Subject (models.Model):
         ("DP core", "DP core"),
     )
 
-    Subjects = models.CharField(max_length=30)
+    name = models.CharField(max_length=30)
     Group = models.CharField(max_length=30,choices=GROUP_CHOICES)
 
     def __str__(self):

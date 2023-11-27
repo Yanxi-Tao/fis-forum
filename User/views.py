@@ -35,7 +35,7 @@ def login(request):
 
             response = redirect(reverse('index'))
             request.session['userid'] = visit.id
-            request.session.set_expiry(7*24*3600)
+            request.session.set_expiry(2*24*3600)
         # 5. redirect
         return redirect(reverse('index'))
 

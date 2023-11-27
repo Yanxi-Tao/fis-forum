@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create a new post</title>
+</head>
+<body>
+    <h2>new post</h2>
+    <hr>
+    <form action=""method="post">
+        {% csrf_token %}
+
+        <p>Title: <input type="text" name="title"></p>
+        <p>Content: <input type="text" name="content"></p>
+        <label for="subject">Which subject is this?</label>
+        <select id="subject" name="subject">
+           {% for subjects in subject %}
+                <option value="{{ subjects.pk }}">{{ subjects.name }}</option>
+            {% endfor %}
+        </select>
+
+        <p><button>post</button></p>
+    </form>
+
+</body>
+</html>

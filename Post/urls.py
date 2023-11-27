@@ -7,4 +7,6 @@ urlpatterns = [
 
     path('detail/<int:pid>/', post_detail, name='detail'),
 
+    path('post/', new_post, name='npost'),
+
 ]
